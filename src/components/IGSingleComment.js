@@ -3,7 +3,6 @@ import Styled from 'styled-components';
 import { FaPencilAlt, FaSkull } from 'react-icons/fa';
 
 const Comment = Styled.div`
-  border: 1px solid red;
   display: inline-flex;
   padding: 8px;
 
@@ -18,7 +17,7 @@ const Comment = Styled.div`
   }
 
   .author {
-    border: 1px solid red;
+    font-weight: bolder;
   }
 
   .actionBtns {
