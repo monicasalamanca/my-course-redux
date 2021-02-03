@@ -1,4 +1,3 @@
-import react from 'react';
 import Styled from 'styled-components';
 import IGSingleComment from './IGSingleComment';
 import { FaSkull } from 'react-icons/fa';
@@ -23,12 +22,12 @@ const CommentsList = Styled.div`
   overflow: auto;
 `;
 
-const IGPhotoSingle = () => {
+const IGPhotoSingle = (props) => {
   return (
     <SinglePhotoDiv>
       <div>
-        <img src="http://placehold.it/200x150" />
-        <FaSkull className="delBtn" />
+        <img src="http://placehold.it/200x150" alt="" />
+        <FaSkull className="delBtn" onClick={props.deletePhoto} />
       </div>
       <CommentsList>
         <IGSingleComment />

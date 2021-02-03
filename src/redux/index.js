@@ -1,0 +1,1 @@
+export { deletePhoto } from './igPhotos/igPhotosActions';

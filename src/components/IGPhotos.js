@@ -1,7 +1,9 @@
-import react from 'react';
 import IGPhotoSingle from './IGPhotoSingle';
 import Styled from 'styled-components';
 import { MdAddAPhoto } from 'react-icons/md';
+// import json from '../data.json';
+import { deletePhoto } from '../redux';
+import { connect } from 'react-redux';
 
 const PhotoList = Styled.div`
   display: flex;
@@ -16,20 +18,27 @@ const PhotoList = Styled.div`
   }
 `;
 
-const IGPhotos = () => {
+const IGPhotos = (props) => {
   return (
     <PhotoList>
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
-      <IGPhotoSingle />
+      {
+        props.state.map(photo => <IGPhotoSingle photoInfo={photo} deletePhoto={props.deletePhoto} key={photo._id} />)
+      }
       <MdAddAPhoto className="addPhoto" />
     </PhotoList>
   )
 }
 
-export default IGPhotos;
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePhoto: () => dispatch(deletePhoto())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IGPhotos);

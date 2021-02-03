@@ -1,4 +1,3 @@
-import react from 'react';
 import Styled from 'styled-components';
 import { FaPencilAlt, FaSkull } from 'react-icons/fa';
 
