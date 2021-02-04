@@ -1,5 +1,7 @@
 import Styled from 'styled-components';
 import IGSingleComment from './IGSingleComment';
+import { deletePhoto } from '../redux';
+import { connect } from 'react-redux';
 import { FaSkull } from 'react-icons/fa';
 
 const SinglePhotoDiv = Styled.div`
@@ -23,21 +25,26 @@ const CommentsList = Styled.div`
 `;
 
 const IGPhotoSingle = (props) => {
+  console.log("HELP", props.photoInfo._id)
   return (
     <SinglePhotoDiv>
       <div>
         <img src="http://placehold.it/200x150" alt="" />
-        <FaSkull className="delBtn" onClick={props.deletePhoto} />
+        <FaSkull className="delBtn" onClick={() => props.deletePhoto(props.photoInfo._id)} />
       </div>
       <CommentsList>
-        <IGSingleComment />
-        <IGSingleComment />
-        <IGSingleComment />
-        <IGSingleComment />
-        <IGSingleComment />
+        {
+          props.photoInfo.comments.map(comment => <IGSingleComment comment={comment.comment} key={comment.comment.id} />)
+        }
       </CommentsList>
     </SinglePhotoDiv>
   )
 }
 
-export default IGPhotoSingle;
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePhoto: photoid => dispatch(deletePhoto(photoid))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(IGPhotoSingle);

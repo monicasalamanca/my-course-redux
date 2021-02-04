@@ -29,14 +29,14 @@ const Comment = Styled.div`
   }
 `;
 
-const IGSingleComment = () => {
+const IGSingleComment = (props) => {
   return (
     <Comment>
       <div className="author">
-        <p>Author</p>
+        <p>{props.comment.author}</p>
       </div>
       <div className="comment">
-        <p>LOrem Ipsum LOrem Ipsum LOrem Ipsum LOrem Ipsum </p>
+        <p>{props.comment.description}</p>
       </div>
       <div className="actionBtns">
         <FaPencilAlt className="btn" />

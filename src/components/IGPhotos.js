@@ -2,7 +2,7 @@ import IGPhotoSingle from './IGPhotoSingle';
 import Styled from 'styled-components';
 import { MdAddAPhoto } from 'react-icons/md';
 // import json from '../data.json';
-import { deletePhoto } from '../redux';
+// import { deletePhoto } from '../redux';
 import { connect } from 'react-redux';
 
 const PhotoList = Styled.div`
@@ -35,10 +35,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    deletePhoto: () => dispatch(deletePhoto())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(IGPhotos);
+export default connect(mapStateToProps, null)(IGPhotos);

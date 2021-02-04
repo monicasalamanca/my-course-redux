@@ -7,8 +7,8 @@ const initialState = json;
 const igPhotosReducer = (state = initialState, action) => {
   switch(action.type) {
     case DELETE_PHOTO: 
-      console.log("test");
-      return state;
+      console.log("test", action);
+      return state.filter(photo => photo._id !== action.payload);
     default: return state; 
   }
 } 
