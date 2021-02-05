@@ -25,7 +25,6 @@ const CommentsList = Styled.div`
 `;
 
 const IGPhotoSingle = (props) => {
-  console.log("HELP", props.photoInfo._id)
   return (
     <SinglePhotoDiv>
       <div>
@@ -34,7 +33,7 @@ const IGPhotoSingle = (props) => {
       </div>
       <CommentsList>
         {
-          props.photoInfo.comments.map(comment => <IGSingleComment comment={comment.comment} key={comment.comment.id} />)
+          props.photoInfo.comments.map(comment => <IGSingleComment comment={comment.comment} photoId={props.photoInfo._id} key={comment.comment.id} />)
         }
       </CommentsList>
     </SinglePhotoDiv>

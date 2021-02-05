@@ -1,0 +1,2 @@
+export const DELETE_PHOTO = 'DELETE_PHOTO';
+export const DELETE_COMMENT = 'DELETE_COMMENT'; 

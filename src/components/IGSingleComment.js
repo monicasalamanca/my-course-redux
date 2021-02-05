@@ -1,5 +1,7 @@
 import Styled from 'styled-components';
+import { connect } from 'react-redux';
 import { FaPencilAlt, FaSkull } from 'react-icons/fa';
+import { deleteComment } from '../redux';
 
 const Comment = Styled.div`
   display: inline-flex;
@@ -40,10 +42,16 @@ const IGSingleComment = (props) => {
       </div>
       <div className="actionBtns">
         <FaPencilAlt className="btn" />
-        <FaSkull className="btn" />
+        <FaSkull className="btn" onClick={() => props.deleteComment(props.photoId, props.comment.id)} />
       </div>
     </Comment>
   )
 }
 
-export default IGSingleComment;
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteComment: (photoId, commentId) => dispatch(deleteComment(photoId, commentId))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(IGSingleComment);

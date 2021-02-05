@@ -1,8 +1,6 @@
 import IGPhotoSingle from './IGPhotoSingle';
 import Styled from 'styled-components';
 import { MdAddAPhoto } from 'react-icons/md';
-// import json from '../data.json';
-// import { deletePhoto } from '../redux';
 import { connect } from 'react-redux';
 
 const PhotoList = Styled.div`
@@ -22,7 +20,7 @@ const IGPhotos = (props) => {
   return (
     <PhotoList>
       {
-        props.state.map(photo => <IGPhotoSingle photoInfo={photo} deletePhoto={props.deletePhoto} key={photo._id} />)
+        props.state.map(photo => <IGPhotoSingle photoInfo={photo} key={photo._id} />)
       }
       <MdAddAPhoto className="addPhoto" />
     </PhotoList>
